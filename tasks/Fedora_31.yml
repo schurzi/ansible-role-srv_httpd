@@ -1,0 +1,8 @@
+---
+# tasks file for httpd
+
+- name: "Manage httpd Package"
+  package:
+    name: "{{ amdd_httpd_package_name }}"
+    state: "{{ amdd_httpd_package_state }}"
+  become: true
