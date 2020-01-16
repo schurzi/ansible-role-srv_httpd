@@ -1,5 +1,8 @@
 ---
 # tasks file for httpd
 
-- include_vars: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}.yml"
-- include_tasks: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}.yml"
+- name: "Include distribution specific Variables"
+  include_vars: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}.yml"
+
+- name: "Include distribution specific Tasks"
+  include_tasks: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}.yml"
