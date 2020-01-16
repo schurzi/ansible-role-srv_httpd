@@ -2,7 +2,20 @@
 # tasks file for httpd
 
 - name: "Include distribution specific Variables"
-  include_vars: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}.yml"
+  include_vars: "{{ item }}"
+  with_first_found:
+    - files:
+      - "{{ ansible_facts.distribution }}-{{ ansible_facts.distribution_major_version }}.yml"
+      - "{{ ansible_facts.distribution }}.yml"
+      skip: true
+  tags: always
+
 
 - name: "Include distribution specific Tasks"
-  include_tasks: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}.yml"
+  include_tasks: "{{ item }}"
+  with_first_found:
+    - files:
+      - "{{ ansible_facts.distribution }}-{{ ansible_facts.distribution_major_version }}.yml"
+      - "{{ ansible_facts.distribution }}.yml"
+      skip: true
+  tags: always
