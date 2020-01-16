@@ -1,5 +1,11 @@
 ---
 # defaults file for httpd
 
-amdd_package_name: ""
-amdd_package_state: ""
+amdd_httpd_package_name: "httpd"
+amdd_httpd_package_state: "present"
+
+amdd_httpd_service_name: "httpd"
+amdd_httpd_service_state: "started"
+amdd_httpd_service_enabled: true
+
+amdd_httpd_conf_xxx: ""
