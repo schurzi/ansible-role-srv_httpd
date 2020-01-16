@@ -1,2 +1,5 @@
 ---
 # defaults file for httpd
+
+amdd_package_name: ""
+amdd_package_state: ""
